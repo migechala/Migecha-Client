@@ -1,0 +1,7 @@
+package migecha.mods.impl;
+
+import migecha.mods.ModDraggable;
+
+public class ModHelloWorld extends ModDraggable{
+
+}

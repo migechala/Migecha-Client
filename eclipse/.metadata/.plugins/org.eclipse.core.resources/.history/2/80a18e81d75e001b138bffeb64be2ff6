@@ -1,0 +1,85 @@
+package migecha.minecraftLogin;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Scanner;
+
+import org.apache.commons.io.Charsets;
+
+import com.google.common.collect.Lists;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.ResourceLocation;
+
+public class AutoLogin {
+	private final ResourceLocation resource;
+	private List<String> LoginCred;
+	public AutoLogin(ResourceLocation resource) {
+		this.resource= resource;
+	}
+	private String getUsername() {
+		return this.GetInfo(1);
+	}
+	private String getPassword() {
+		return this.GetInfo(2);
+	}
+	private String getProxy() {
+		return this.GetInfo(3);
+	}
+	
+	
+	public boolean tryLogin() {
+		LoginThread thread = new LoginThread(this.getUsername(), this.getPassword(), this.getProxy());
+		if(thread.getSuccess()) {
+			return true;
+		}
+		return false;
+	}
+	
+	public String GetInfo(int index){
+        BufferedReader bufferedreader = null;
+        try
+        {
+            this.LoginCred = Lists.<String>newArrayList();
+            bufferedreader = new BufferedReader(new InputStreamReader(Minecraft.getMinecraft().getResourceManager().getResource(resource).getInputStream(), Charsets.UTF_8));
+            String line;
+            while ((line = bufferedreader.readLine()) != null)
+            {
+                line = line.trim();
+                if (!line.isEmpty())
+                {
+                	this.LoginCred.add(line);
+                }
+            }
+            if (!this.LoginCred.isEmpty())
+            {
+            	return "";
+            }
+        }
+        catch (IOException var12)
+        {
+            ;
+        }
+        finally
+        {
+            if (bufferedreader != null)
+            {
+                try
+                {
+                    bufferedreader.close();
+                }
+                catch (IOException var11)
+                {
+                    ;
+                }
+            }
+        }
+        return this.LoginCred.get(index);
+	}
+	
+}

@@ -1,0 +1,5 @@
+package migecha.keystroke;
+
+public class GetKey {
+
+}

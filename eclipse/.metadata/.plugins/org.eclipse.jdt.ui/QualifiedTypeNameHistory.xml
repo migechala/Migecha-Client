@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="net.minecraft.client.multiplayer.ServerData"/>
+    <fullyQualifiedTypeName name="migecha.ServerDataFeatured"/>
+    <fullyQualifiedTypeName name="net.arikia.dev.drpc.DiscordEventHandlers"/>
+    <fullyQualifiedTypeName name="net.arikia.dev.drpc.DiscordRPC"/>
+    <fullyQualifiedTypeName name="net.arikia.dev.drpc.DiscordRichPresence"/>
+    <fullyQualifiedTypeName name="migecha.Client"/>
+    <fullyQualifiedTypeName name="net.minecraft.client.renderer.texture.TextureManager"/>
+    <fullyQualifiedTypeName name="net.minecraft.client.gui.ScaledResolution"/>
+    <fullyQualifiedTypeName name="net.minecraft.client.shader.Framebuffer"/>
+    <fullyQualifiedTypeName name="net.minecraft.client.renderer.GlStateManager"/>
+    <fullyQualifiedTypeName name="migecha.gui.Progress"/>
+    <fullyQualifiedTypeName name="net.minecraft.util.Session"/>
+    <fullyQualifiedTypeName name="migecha.MinecraftLogin"/>
+    <fullyQualifiedTypeName name="migecha.MinecraftLogin.GuiLogin"/>
+    <fullyQualifiedTypeName name="net.minecraft.util.ResourceLocation"/>
+    <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.lang.reflect.Method"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="migecha.event.imp.RenderEvent"/>
+    <fullyQualifiedTypeName name="migecha.event.Event"/>
+    <fullyQualifiedTypeName name="net.minecraft.client.gui.FontRenderer"/>
+    <fullyQualifiedTypeName name="migecha.event.EventManager"/>
+    <fullyQualifiedTypeName name="migecha.gui.hud.IRenderer"/>
+    <fullyQualifiedTypeName name="migecha.gui.hud.ScreenPosition"/>
+    <fullyQualifiedTypeName name="migecha.gui.hud.HUDManager"/>
+    <fullyQualifiedTypeName name="migecha.mods.ModInstances"/>
+    <fullyQualifiedTypeName name="migecha.event.EventTarget"/>
+    <fullyQualifiedTypeName name="migecha.event.imp.ClientTickEvent"/>
+    <fullyQualifiedTypeName name="net.java.games.input.Keyboard"/>
+    <fullyQualifiedTypeName name="org.lwjgl.input.Keyboard"/>
+    <fullyQualifiedTypeName name="net.minecraft.world.World"/>
+    <fullyQualifiedTypeName name="net.minecraft.util.BlockPos"/>
+    <fullyQualifiedTypeName name="migecha.mods.impl.CoordinateMod"/>
+    <fullyQualifiedTypeName name="migecha.mods.impl.ModHelloWorld"/>
+    <fullyQualifiedTypeName name="migecha.mods.ModDraggable"/>
+    <fullyQualifiedTypeName name="net.minecraft.client.settings.KeyBinding"/>
+    <fullyQualifiedTypeName name="net.minecraft.client.Minecraft"/>
+    <fullyQualifiedTypeName name="org.lwjgl.opengl.GL11"/>
+    <fullyQualifiedTypeName name="net.minecraft.client.gui.Gui"/>
+    <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="migecha.mods.impl.KeystrokesMod"/>
+</qualifiedTypeNameHistroy>

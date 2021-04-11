@@ -1,0 +1,145 @@
+package migecha.gui.hud;
+
+import java.awt.event.KeyEvent;
+import java.awt.Color;
+
+
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Optional;
+
+import javax.swing.Renderer;
+
+import org.lwjgl.input.Keyboard;
+
+import java.util.function.Predicate;
+import com.sun.jna.platform.win32.Wdm.KEY_BASIC_INFORMATION;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.ScaledResolution;
+
+public class HUDConfigScreen extends GuiScreen {
+	
+	private final HashMap<IRenderer, ScreenPosition> renderers = new HashMap<>();
+	  
+	  private Optional<IRenderer> selectedRenderer = Optional.empty();
+	  
+	  private int prevX;
+	  
+	  private int prevY;
+	  
+	  private boolean clear;
+	  
+	  public HUDConfigScreen(HUDManager hm, boolean clear) {
+	    this.clear = clear;
+	    Collection<IRenderer> registeredRenderers = hm.getRegisterRenderers();
+	    for (IRenderer render : registeredRenderers) {
+	      if (!render.isEnabled())
+	        continue; 
+	      ScreenPosition screenpos = render.load();
+	      if (screenpos == null)
+	        screenpos = ScreenPosition.fromRelativePosition(0.5D, 0.5D); 
+	      adjustBounds(render, screenpos);
+	      this.renderers.put(render, screenpos);
+	    } 
+	  }
+	  
+	  public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+	    Color color;
+	    if (this.clear) {
+	      color = new Color(33, 41, 48, 100);
+	    } else {
+	      color = new Color(33, 41, 48, 255);
+	    } 
+	    drawRect(0, 0, this.width, this.height, color.getRGB());
+	    float zBackup = this.zLevel;
+	    this.zLevel = 200.0F;
+	    drawOutline(0, 0, this.width - 1, this.height - 1, -8355712);
+	    for (IRenderer renderer : this.renderers.keySet()) {
+	      ScreenPosition screenpos = this.renderers.get(renderer);
+	      renderer.renderDummy(screenpos);
+	    } 
+	    this.zLevel = zBackup;
+	  }
+	  
+	  private void drawOutline(int x, int y, int w, int h, int color) {
+	    drawHorizontalLine(x, x + w, y, color);
+	    drawHorizontalLine(x, x + w, y + h, color);
+	    drawVerticalLine(x, y + h, y, color);
+	    drawVerticalLine(x + w, y + h, y, color);
+	  }
+	  
+	  protected void keyTyped(char typedChar, int keyCode) throws IOException {
+	    if (keyCode == 1) {
+	      this.renderers.entrySet().forEach(entry -> ((IRenderer)entry.getKey()).save(entry.getValue()));
+	      this.mc.displayGuiScreen(null);
+	    } 
+	  }
+	  
+	  protected void mouseClickMove(int x, int y, int button, long time) {
+	    if (this.selectedRenderer.isPresent())
+	      moveSelectedRendererby(x - this.prevX, y - this.prevY); 
+	    this.prevX = x;
+	    this.prevY = y;
+	  }
+	  
+	  private void moveSelectedRendererby(int offsetX, int offsetY) {
+	    IRenderer renderer = this.selectedRenderer.get();
+	    ScreenPosition screenpos = this.renderers.get(renderer);
+	    screenpos.setAbsolute(screenpos.getAbsoluteX() + offsetX, screenpos.getAbsoluteY() + offsetY);
+	    adjustBounds(renderer, screenpos);
+	  }
+	  
+	  public void onGuiClosed() {
+	    HUDManager.setPaused(false);
+	    for (IRenderer renderer : this.renderers.keySet())
+	      renderer.save(this.renderers.get(renderer)); 
+	  }
+	  
+	  public boolean doesGuiPauseGame() {
+	    return true;
+	  }
+	  
+	  private void adjustBounds(IRenderer renderer, ScreenPosition screenpos) {
+	    ScaledResolution res = new ScaledResolution(Minecraft.getMinecraft());
+	    int screenWidth = res.getScaledWidth();
+	    int screenHeight = res.getScaledHeight();
+	    int absolutX = Math.max(0, Math.min(screenpos.getAbsoluteX(), Math.max(screenWidth - renderer.getWidth(), 0)));
+	    int absolutY = Math.max(0, Math.min(screenpos.getAbsoluteY(), Math.max(screenHeight - renderer.getHeight(), 0)));
+	    screenpos.setAbsolute(absolutX, absolutY);
+	  }
+	  
+	  protected void mouseClicked(int x, int y, int button) throws IOException {
+	    this.prevX = x;
+	    this.prevY = y;
+	    loadMouseOver(x, y);
+	  }
+	  
+	  private void loadMouseOver(int x, int y) {
+	    this.selectedRenderer = this.renderers.keySet().stream().filter(new MouseOverFinder(x, y)).findFirst();
+	  }
+	  
+	  private class MouseOverFinder implements Predicate<IRenderer> {
+	    private int mousex;
+	    
+	    private int mousey;
+	    
+	    public MouseOverFinder(int x, int y) {
+	      this.mousex = x;
+	      this.mousey = y;
+	    }
+	    
+	    public boolean test(IRenderer r) {
+	      ScreenPosition screenpos = (ScreenPosition)HUDConfigScreen.this.renderers.get(r);
+	      int absolutX = screenpos.getAbsoluteX();
+	      int absolutY = screenpos.getAbsoluteY();
+	      if (this.mousex >= absolutX && this.mousex <= absolutX + r.getWidth())
+	        if (this.mousey >= absolutY && this.mousey <= absolutY + r.getHeight())
+	          return true;  
+	      return false;
+	    }
+	  }
+	
+}
