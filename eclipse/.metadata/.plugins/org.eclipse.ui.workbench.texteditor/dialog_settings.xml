@@ -10,8 +10,14 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="KeystrokesMod"/>
+		<item key="selection" value="badWords"/>
 		<list key="findhistory">
+			<item value="badWords"/>
+			<item value="chat"/>
+			<item value="ora"/>
+			<item value="pan"/>
+			<item value="****"/>
+			<item value="scale"/>
 			<item value="KeystrokesMod"/>
 			<item value="debug"/>
 			<item value="clicks"/>
@@ -21,12 +27,6 @@
 			<item value="makeEntity"/>
 			<item value="loadMouseOver"/>
 			<item value="mouseClickMove"/>
-			<item value="selectedRenderer"/>
-			<item value="Scale Fac"/>
-			<item value="cross"/>
-			<item value="crosshair"/>
-			<item value="getX"/>
-			<item value="this.objectMouseOver.getBlockPos()"/>
 		</list>
 		<list key="replacehistory">
 			<item value="FPSMod"/>

@@ -31,14 +31,4 @@ public class CoordinateMod  extends ModDraggable {
 	public void renderDummy(ScreenPosition pos) {
 		font.drawString("XYZ: xxx, xxx, xxx", pos.getAbsoluteX(), pos.getAbsoluteY(), 0xFF00FF00);
 	}
-
-	@Override
-	public void save(ScreenPosition pos) {
-		this.pos = pos;
-	}
-
-	@Override
-	public ScreenPosition load() {
-		return pos;
-	}
 }

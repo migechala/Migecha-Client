@@ -19,6 +19,7 @@ public class Client {
 	private HUDManager hudManager;
 	
 	public void init() {
+		ManageFiles.init();
 		Progress.setProg(1, "Client - Initializing discordRPC");
 		discordRP.start();
 		EventManager.register(this); 

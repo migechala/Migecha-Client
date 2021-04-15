@@ -1,0 +1,10 @@
+package migecha.gui.hud;
+
+public class SaveHud extends HUDConfigScreen{
+
+	public SaveHud(HUDManager api) {
+		super(api);
+		// TODO Auto-generated constructor stub
+	}
+
+}

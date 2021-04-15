@@ -1,6 +1,7 @@
 package net.minecraft.client.gui;
 
 import com.ibm.icu.text.ArabicShaping;
+
 import com.ibm.icu.text.ArabicShapingException;
 import com.ibm.icu.text.Bidi;
 import java.awt.image.BufferedImage;
@@ -26,6 +27,7 @@ import optifine.CustomColors;
 import optifine.FontUtils;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.lwjgl.opengl.GL11;
 
 public class FontRenderer implements IResourceManagerReloadListener
@@ -108,7 +110,7 @@ public class FontRenderer implements IResourceManagerReloadListener
     public ResourceLocation locationFontTextureBase;
     public boolean enabled = true;
     public float offsetBold = 1.0F;
-    private static String badWords[] = {"fuck", "shit", "bitch", "bad", "god", "damn", "suck", "trash"};
+    private static String badWords[] = {"fuck", "shit", "bitch", "bad", "god", "damn", "suck", "trash", "retard", "ass"};
     public FontRenderer(GameSettings gameSettingsIn, ResourceLocation location, TextureManager textureManagerIn, boolean unicode)
     {
         this.gameSettings = gameSettingsIn;
@@ -384,10 +386,11 @@ public class FontRenderer implements IResourceManagerReloadListener
     /**
      * Draws the specified string.
      */
+
     public int drawString(String text, float x, float y, int color, boolean dropShadow)
     {
     	for (String word : badWords) {
-    		text = text.replace(word, "****");    		
+    		text = text.replace(word, StringUtils.repeat("*", word.length()));
     	}
         this.enableAlpha();
         this.resetStyles();

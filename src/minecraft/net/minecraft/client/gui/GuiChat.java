@@ -36,7 +36,7 @@ public class GuiChat extends GuiScreen
     /**
      * is the text that appears when you press the chat key and the input box appears pre-filled
      */
-    private String defaultInputFieldText = "";
+    private String defaultInputFieldText = "gg";
 
     public GuiChat()
     {

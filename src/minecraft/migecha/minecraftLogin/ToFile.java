@@ -43,7 +43,10 @@ public class ToFile {
         try
         {
         	this.array = Lists.<String>newArrayList();
-            bufferedreader = new BufferedReader(new InputStreamReader(Minecraft.getMinecraft().getResourceManager().getResource(this.resource).getInputStream(), Charsets.UTF_8));
+            bufferedreader = new BufferedReader(new InputStreamReader(Minecraft.getMinecraft().
+            		getResourceManager().
+            		getResource(this.resource).
+            		getInputStream(), Charsets.UTF_8));
             String line;
             while ((line = bufferedreader.readLine()) != null)
             {

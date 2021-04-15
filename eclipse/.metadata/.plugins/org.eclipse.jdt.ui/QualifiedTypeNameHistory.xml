@@ -17,7 +17,6 @@
     <fullyQualifiedTypeName name="net.minecraft.util.ResourceLocation"/>
     <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
     <fullyQualifiedTypeName name="java.io.FileWriter"/>
-    <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="java.lang.reflect.Method"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="migecha.event.imp.RenderEvent"/>
@@ -25,7 +24,6 @@
     <fullyQualifiedTypeName name="net.minecraft.client.gui.FontRenderer"/>
     <fullyQualifiedTypeName name="migecha.event.EventManager"/>
     <fullyQualifiedTypeName name="migecha.gui.hud.IRenderer"/>
-    <fullyQualifiedTypeName name="migecha.gui.hud.ScreenPosition"/>
     <fullyQualifiedTypeName name="migecha.gui.hud.HUDManager"/>
     <fullyQualifiedTypeName name="migecha.mods.ModInstances"/>
     <fullyQualifiedTypeName name="migecha.event.EventTarget"/>
@@ -43,4 +41,16 @@
     <fullyQualifiedTypeName name="net.minecraft.client.gui.Gui"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
     <fullyQualifiedTypeName name="migecha.mods.impl.KeystrokesMod"/>
+    <fullyQualifiedTypeName name="com.google.gson.Gson"/>
+    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+    <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+    <fullyQualifiedTypeName name="org.apache.logging.log4j.core.appender.FileManager"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="com.sun.jna.platform.mac.MacFileUtils.FileManager"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="migecha.ManageFiles"/>
+    <fullyQualifiedTypeName name="migecha.gui.hud.ScreenPosition"/>
+    <fullyQualifiedTypeName name="net.minecraft.util.StringUtils"/>
+    <fullyQualifiedTypeName name="org.apache.commons.lang3.StringUtils"/>
 </qualifiedTypeNameHistroy>

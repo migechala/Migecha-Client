@@ -28,16 +28,4 @@ public class ClicksPerSecondMod extends ModDraggable {
 		font.drawString("CPS: [xx, xx]", pos.getAbsoluteX() + 1, pos.getAbsoluteY() + 1, 0xFF00FF00);
 	}
 
-	@Override
-	public void save(ScreenPosition pos) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ScreenPosition load() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

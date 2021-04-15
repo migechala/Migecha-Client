@@ -18,7 +18,7 @@ public class ModInstances {
 		modFPS = new FPSMod();
 		modCord = new CoordinateMod();
 		modHelloWorld = new ModHelloWorld();
-		modKeys = new KeystrokesMod(1);
+		modKeys = new KeystrokesMod(2);
 		api.register(modFPS, modCord, modKeys);
 	}
 

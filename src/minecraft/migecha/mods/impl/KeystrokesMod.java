@@ -12,8 +12,13 @@ import net.minecraft.client.settings.KeyBinding;
 
 public class KeystrokesMod extends ModDraggable{
 
-	private final int scale;
+	private static int scale;
 
+	
+	public KeystrokesMod(int scale){
+		this.scale = scale;
+	}
+	
 	public static enum KeyStrokes{
 		
 		WASD(Key.W, Key.A, Key.S, Key.D),
@@ -94,14 +99,9 @@ public class KeystrokesMod extends ModDraggable{
 			return this.y;
 		}
 	}
-	private ScreenPosition pos;
 	
 	private KeyStrokes mode = KeyStrokes.WASD_SPRINT_MOUSE;
 
-	
-	public KeystrokesMod(int scale){
-		this.scale = scale;
-	}
 	
 	@Override
 	public int getWidth() {
@@ -129,14 +129,14 @@ public class KeystrokesMod extends ModDraggable{
 			
 			Gui.drawRect(
 					pos.getAbsoluteX() + key.getX(), pos.getAbsoluteY() + key.getY(),
-					(pos.getAbsoluteX() + key.getX() + key.getWidth()) * this.scale,
-					(pos.getAbsoluteY() + key.getY() + key.getHeight() * this.scale),
-					key.isDown() ? new Color(255, 255, 255, 102).getRGB() : new Color(0, 0, 0, 102).getRGB());
+					pos.getAbsoluteX() + key.getX() + key.getWidth(),
+					pos.getAbsoluteY() + key.getY() + key.getHeight(),
+					key.isDown() ? new Color(255, 255, 255, 90).getRGB() : new Color(0, 0, 0, 90).getRGB());
 			
 			font.drawString(key.getName(),
-					(pos.getAbsoluteX() + key.getX() + key.getWidth()/2 - textWidth/2) * this.scale,
-					(pos.getAbsoluteY() + key.getY() + key.getHeight()/2 - 4) * this.scale,
-					key.isDown() ? Color.BLACK.getRGB() : Color.WHITE.getRGB());
+					pos.getAbsoluteX() + key.getX() + key.getWidth()/2 - textWidth/2,
+					pos.getAbsoluteY() + key.getY() + key.getHeight()/2 - 4,
+					key.isDown() ? Color.TRANSLUCENT : Color.GREEN.getRGB());
 			}
 		
 		if(blend) {
@@ -146,14 +146,5 @@ public class KeystrokesMod extends ModDraggable{
 		GL11.glPopMatrix();
 	}
 
-	@Override
-	public void save(ScreenPosition pos) {
-		this.pos = pos;
-	}
-
-	@Override
-	public ScreenPosition load() {
-		return this.pos;
-	}
 
 }

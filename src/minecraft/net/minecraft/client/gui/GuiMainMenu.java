@@ -78,7 +78,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
     private static final ResourceLocation loginCredentials = new ResourceLocation("logincred.txt");
 
     /** An array of all the paths to the panorama pictures. */
-    private static final ResourceLocation[] titlePanoramaPaths = new ResourceLocation[] {new ResourceLocation("textures/gui/title/background/panorama_0.png"), new ResourceLocation("textures/gui/title/background/panorama_1.png"), new ResourceLocation("textures/gui/title/background/panorama_2.png"), new ResourceLocation("textures/gui/title/background/panorama_3.png"), new ResourceLocation("textures/gui/title/background/panorama_4.png"), new ResourceLocation("textures/gui/title/background/panorama_5.png")};
+    private static final ResourceLocation titlePanoramaPaths = new ResourceLocation("migecha/clientLarge.png");
     public static final String field_96138_a = "Please click " + EnumChatFormatting.UNDERLINE + "here" + EnumChatFormatting.RESET + " for more information.";
     private int field_92024_r;
     private int field_92023_s;
@@ -412,7 +412,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
                     GlStateManager.rotate(-90.0F, 1.0F, 0.0F, 0.0F);
                 }
 
-                this.mc.getTextureManager().bindTexture(titlePanoramaPaths[k]);
+                this.mc.getTextureManager().bindTexture(titlePanoramaPaths);
                 worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
                 int l = 255 / (j + 1);
                 float f3 = 0.0F;
