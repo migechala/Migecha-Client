@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
+    <libraryInfo home="/opt/eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_15.0.2.v20210201-0955/jre" version="15.0.2"/>
     <libraryInfo home="/opt/jre1.8.0_111" version="1.8.0_111">
         <bootpath>
             <entry path="/opt/jre1.8.0_111/lib/resources.jar"/>
@@ -19,4 +20,5 @@
             <entry path="/opt/jre1.8.0_111/lib/endorsed"/>
         </endorsedDirs>
     </libraryInfo>
+    <libraryInfo home="/opt/eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_15.0.2.v20210201-0955" version="15.0.2"/>
 </libraryInfos>

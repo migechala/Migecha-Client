@@ -1,5 +1,0 @@
-package migecha.mods.impl;
-
-public class ClicksPerSecondMod extends ModDraggable {
-
-}
